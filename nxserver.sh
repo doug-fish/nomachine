@@ -1,6 +1,9 @@
 #!/bin/sh
 /etc/NX/nxserver --startup
 
+# Taken from the documentation; there has to be a better
+# way - this seems like a poor way to get a "random"
+# value
 COOKIE=`ps -ef | md5sum | cut -f 1 -d " "`
 AUTHFILE=$HOME/Xvfb-0.auth
 xauth -f $AUTHFILE add :0 MIT-MAGIC-COOKIE-1 $COOKIE 
